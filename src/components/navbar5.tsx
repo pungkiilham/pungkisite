@@ -25,6 +25,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import Link from "next/link";
 
 const Navbar5 = () => {
   const features = [
@@ -64,29 +65,29 @@ const Navbar5 = () => {
     <section className="py-4 border-b-2">
       <div className="container">
         <nav className="flex items-center justify-between">
-          <a
+          <Link
             href="/"
             className="text-lg font-semibold"
           >
             Pungki Site
-          </a>
+          </Link>
           <div className="hidden items-center gap-4 lg:flex lg:gap-10">
-            <a href="/about" className="font-medium">
+            <Link href="/about" className="font-medium">
               About
-            </a>
-            <a href="/portofolio" className="font-medium">
+            </Link>
+            <Link href="/portofolio" className="font-medium">
               Portofolio
-            </a>
-            <a href="/contact" className="font-medium">
+            </Link>
+            <Link href="/contact" className="font-medium">
               Contact
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://github.com/pungkiilham"
               className="flex items-center border-2 px-4 py-2 rounded-md gap-2 bg-black text-white font-medium"
             >
               <Github className="h-4 transition-transform group-hover:translate-x-0.5 font-bold" />
               My Repo
-            </a>
+            </Link>
           </div>
           <Sheet>
             <SheetTrigger asChild className="lg:hidden">
@@ -97,11 +98,11 @@ const Navbar5 = () => {
             <SheetContent side="top" className="max-h-screen overflow-auto">
               <SheetHeader>
                 <SheetTitle>
-                  <a href="/" className="flex items-center gap-2">
+                  <Link href="/" className="flex items-center gap-2">
                     <span className="text-lg font-semibold tracking-tighter">
                       Pungki Site
                     </span>
-                  </a>
+                  </Link>
                 </SheetTitle>
               </SheetHeader>
               <div className="flex flex-col p-4">
@@ -133,22 +134,22 @@ const Navbar5 = () => {
                   </AccordionItem>
                 </Accordion> */}
                 <div className="flex flex-col gap-6">
-                  <a href="/about" className="font-medium">
+                  <Link href="/about" className="font-medium">
                     About
-                  </a>
-                  <a href="/portofolio" className="font-medium">
+                  </Link>
+                  <Link href="/portofolio" className="font-medium">
                     Portofolio
-                  </a>
+                  </Link>
                 </div>
                 <div className="mt-6 flex flex-col gap-4">
                   {/* <Button>Contact</Button> */}
-                  <a
+                  <Link
                     href="https://github.com/pungkiilham"
                     className="flex items-center border-2 px-4 py-2 rounded-md gap-2 bg-black text-white font-medium justify-center"
                   >
                     <Github className="h-4 transition-transform group-hover:translate-x-0.5 font-bold" />
                     My Repo
-                  </a>
+                  </Link>
                 </div>
               </div>
             </SheetContent>
