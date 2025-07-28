@@ -65,25 +65,38 @@ const Navbar5 = () => {
     <section className="py-4 border-b-2">
       <div className="container">
         <nav className="flex items-center justify-between">
-          <Link
-            href="/"
-            className="text-lg font-semibold"
-          >
+          <Link href="/" className="text-lg font-semibold">
             Pungki Site
           </Link>
           <div className="hidden items-center gap-4 lg:flex lg:gap-10">
-            <Link href="/about" className="font-medium">
+            <Link
+              href="/"
+              className="font-medium hover:border-b-4 active:font-bold"
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className="font-medium hover:border-b-4 active:font-bold"
+            >
               About
             </Link>
-            <Link href="/portofolio" className="font-medium">
+            <Link
+              href="/portofolio"
+              className="font-medium hover:border-b-4 active:font-bold"
+            >
               Portofolio
             </Link>
-            <Link href="/contact" className="font-medium">
+            <Link
+              href="/contact"
+              className="font-medium hover:border-b-4 active:font-bold"
+            >
               Contact
             </Link>
             <Link
+              // href="/"
               href="https://github.com/pungkiilham"
-              className="flex items-center border-2 px-4 py-2 rounded-md gap-2 bg-black text-white font-medium"
+              className="flex items-center px-4 py-2 rounded-md gap-2 bg-black text-white font-medium hover:shadow-xl active:shadow-sm"
             >
               <Github className="h-4 transition-transform group-hover:translate-x-0.5 font-bold" />
               My Repo
@@ -134,6 +147,9 @@ const Navbar5 = () => {
                   </AccordionItem>
                 </Accordion> */}
                 <div className="flex flex-col gap-6">
+                  <Link href="/" className="font-medium">
+                    Home
+                  </Link>
                   <Link href="/about" className="font-medium">
                     About
                   </Link>

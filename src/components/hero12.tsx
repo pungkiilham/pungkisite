@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 
@@ -6,7 +7,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 
 const Hero12 = () => {
   return (
-    <section className="relative overflow-hidden py-32">
+    <section className="relative overflow-hidden py-10">
       <div className="absolute inset-x-0 top-0 flex h-full w-full items-center justify-center opacity-100">
         <img
           alt="background"
@@ -18,37 +19,19 @@ const Hero12 = () => {
         <div className="mx-auto flex max-w-5xl flex-col items-center">
           <div className="flex flex-col items-center gap-6 text-center">
             <div className="rounded-xl bg-background/30 p-4 shadow-sm backdrop-blur-sm">
-              <img
-                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg"
-                alt="logo"
-                className="h-16"
+              <Image
+                src="/PUNGKI_POTRAIT_compressed.png"
+                alt="Pungki Photo"
+                width={200}
+                height={200}
+                className="rounded-xl transition-all group-hover:saturate-100"
+                // className="saturate-0 transition-all group-hover:saturate-100"
               />
             </div>
             <div>
               <h1 className="mb-6 text-2xl font-bold tracking-tight text-pretty lg:text-5xl">
                 Hi, <span className="text-primary">i'm Pungki ilham</span>
               </h1>
-              {/* <div className="grid grid-cols-2 lg:grid-cols-4 justify-center gap-4 p-4">
-                <Button className="shadow-sm transition-shadow hover:shadow">
-                  IT Project Manager
-                </Button>
-                <Button className="shadow-sm transition-shadow hover:shadow">
-                  Business Analyst
-                </Button>
-                <Button className="shadow-sm transition-shadow hover:shadow">
-                  Electrical Engineer
-                </Button>
-                <Button className="shadow-sm transition-shadow hover:shadow">
-                  Full-stack Developer
-                </Button>
-              </div> */}
-
-              {/* <h1 className="mb-6 text-xl font-medium tracking-tight text-pretty lg:text-2xl">
-                IT Project Manager | Business Analyst{" "}
-                <span className="text-primary">
-                  | Electrical Engineer | Full-stack Developer
-                </span>
-              </h1> */}
               <p className="mx-auto max-w-3xl text-muted-foreground lg:text-xl">
                 I bring a unique blend of strategic leadership and hands-on
                 full-stack web development expertise to every project.
@@ -68,17 +51,29 @@ const Hero12 = () => {
                 My Expertice For 8+ Years
               </p>
               <div className="grid grid-cols-2 lg:grid-cols-4 justify-center gap-4">
-                <Button variant="outline" className="shadow-sm transition-shadow hover:shadow">
+                <Button
+                  variant="outline"
+                  className="shadow-sm transition-shadow hover:shadow"
+                >
                   IT Project Manager
                 </Button>
-                <Button variant="outline" className="shadow-sm transition-shadow hover:shadow">
+                <Button
+                  variant="outline"
+                  className="shadow-sm transition-shadow hover:shadow"
+                >
                   Business Analyst
                 </Button>
-                <Button variant="outline" className="shadow-sm transition-shadow hover:shadow">
-                  Electrical Engineer
+                <Button
+                  variant="outline"
+                  className="shadow-sm transition-shadow hover:shadow"
+                >
+                  Mechatronic Engineer
                 </Button>
-                <Button variant="outline" className="shadow-sm transition-shadow hover:shadow">
-                  Full-stack Developer
+                <Button
+                  variant="outline"
+                  className="shadow-sm transition-shadow hover:shadow"
+                >
+                  Full-stack Web Developer
                 </Button>
               </div>
 
@@ -86,83 +81,109 @@ const Hero12 = () => {
                 I Build My Project By This Tech
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4">
-                <a
+                <button
                   className={cn(
                     buttonVariants({ variant: "outline" }),
                     "group flex aspect-square h-16 lg:h-20 items-center justify-center p-0"
                   )}
                 >
-                  <img
-                    src="laravel.jpg"
-                    alt="shadcn/ui logo"
-                    className="h-10 lg:h-14 saturate-0 transition-all group-hover:saturate-100"
+                  <Image
+                    src="/laravel.jpg"
+                    alt="Laravel Logo"
+                    width={50}
+                    height={50}
+                    className="saturate-0 transition-all group-hover:saturate-100"
                   />
-                </a>
-                <a
-                  href="#"
+                </button>
+                <button
                   className={cn(
                     buttonVariants({ variant: "outline" }),
                     "group flex aspect-square h-16 lg:h-20 items-center justify-center p-0"
                   )}
                 >
-                  <img
+                  <Image
                     src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/react-icon.svg"
                     alt="React logo"
-                    className="h-10 lg:h-14 saturate-0 transition-all group-hover:saturate-100"
+                    width={50}
+                    height={50}
+                    className="saturate-0 transition-all group-hover:saturate-100"
                   />
-                </a>
+                </button>
 
-                <a
+                <button
                   className={cn(
                     buttonVariants({ variant: "outline" }),
                     "group flex aspect-square h-16 lg:h-20 items-center justify-center p-0"
                   )}
                 >
-                  <img
-                    src="nextjs-icon.svg"
-                    alt="shadcn/ui logo"
-                    className="h-10 lg:h-14 saturate-0 transition-all group-hover:saturate-100"
+                  <Image
+                    src="/nextjs-icon.svg"
+                    alt="Next logo"
+                    width={50}
+                    height={50}
+                    className="saturate-0 transition-all group-hover:saturate-100"
                   />
-                </a>
+                </button>
 
-                <a
+                <button
                   className={cn(
                     buttonVariants({ variant: "outline" }),
                     "group flex aspect-square h-16 lg:h-20 items-center justify-center p-0"
                   )}
                 >
-                  <img
-                    src="Expressjs.png"
-                    alt="shadcn/ui logo"
-                    className="h-10 lg:h-14 saturate-0 transition-all group-hover:saturate-100"
+                  <Image
+                    src="/Expressjs.png"
+                    alt="Express logo"
+                    width={80}
+                    height={80}
+                    className="saturate-0 transition-all group-hover:saturate-100"
                   />
-                </a>
+                </button>
 
-                <a
+                <button
                   className={cn(
                     buttonVariants({ variant: "outline" }),
                     "group flex aspect-square h-16 lg:h-20 items-center justify-center p-0"
                   )}
                 >
-                  <img
-                    src="Csharp_Logo.png"
-                    alt="shadcn/ui logo"
-                    className="h-16 lg:h-20 saturate-0 transition-all group-hover:saturate-100"
+                  <Image
+                    src="/Csharp_Logo.png"
+                    alt="C# logo"
+                    width={80}
+                    height={80}
+                    className="saturate-0 transition-all group-hover:saturate-100"
                   />
-                </a>  
-                
-                <a
+                </button>
+
+                <button
                   className={cn(
                     buttonVariants({ variant: "outline" }),
                     "group flex aspect-square h-16 lg:h-20 items-center justify-center p-0"
                   )}
                 >
-                  <img
-                    src="arduinologo.png"
-                    alt="shadcn/ui logo"
-                    className="h-10 lg:h-14 saturate-0 transition-all group-hover:saturate-100"
+                  <Image
+                    src="/arduinologo.png"
+                    alt="Arduino logo"
+                    width={50}
+                    height={50}
+                    className="saturate-0 transition-all group-hover:saturate-100"
                   />
-                </a>                
+                </button>
+
+                <button
+                  className={cn(
+                    buttonVariants({ variant: "outline" }),
+                    "group flex aspect-square h-16 lg:h-20 items-center justify-center p-0"
+                  )}
+                >
+                  <Image
+                    src="/figma.png"
+                    alt="Figma logo"
+                    width={50}
+                    height={50}
+                    className="saturate-0 transition-all group-hover:saturate-100"
+                  />
+                </button>
 
                 {/* <a
                   href="#"

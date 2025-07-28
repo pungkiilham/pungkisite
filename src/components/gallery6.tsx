@@ -1,15 +1,10 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
-import type { CarouselApi } from "@/components/ui/carousel";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 
 interface GalleryItem {
   id: string;
@@ -21,162 +16,145 @@ interface GalleryItem {
 
 interface Gallery6Props {
   heading?: string;
-  demoUrl?: string;
+  viewAllUrl?: string; // Optional: A link to a full projects page
   items?: GalleryItem[];
 }
 
 const Gallery6 = ({
-  heading = "Gallery",
-  demoUrl = "https://www.shadcnblocks.com",
+  heading = "My Portfolio",
+  viewAllUrl = "#",
   items = [
+    // IMPORTANT: Ensure these image paths are correct and images exist in your /public directory
     {
       id: "item-1",
-      title: "Build Modern UIs",
+      title: "Full-Stack E-commerce Platform with AI Recommendations",
       summary:
-        "Create stunning user interfaces with our comprehensive design system.",
+        "Developed a robust e-commerce solution with integrated payment gateways, user authentication, and an AI-driven product recommendation engine for personalized shopping experiences. Technologies: Next.js, Express.js, PostgreSQL, Stripe, Python (for AI).",
       url: "#",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+      image: "/project-ecommerce-ai.jpg",
     },
     {
       id: "item-2",
-      title: "Computer Vision Technology",
+      title: "Real-time IoT Dashboard for Smart City Management",
       summary:
-        "Powerful image recognition and processing capabilities that allow AI systems to analyze, understand, and interpret visual information from the world.",
+        "Designed and implemented a scalable IoT dashboard to monitor urban infrastructure in real-time, providing predictive analytics, data visualization, and alert systems for city planners. Technologies: React, Node.js, MQTT, MongoDB, Grafana.",
       url: "#",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+      image: "/project-iot-dashboard.jpg",
     },
     {
       id: "item-3",
-      title: "Machine Learning Automation",
+      title: "Mobile Fitness Tracking App with Gamification",
       summary:
-        "Self-improving algorithms that learn from data patterns to automate complex tasks and make intelligent decisions with minimal human intervention.",
+        "Built a cross-platform mobile application to track various fitness activities, set personalized goals, and engage users with gamified challenges and social leaderboards. Technologies: React Native, Firebase, Redux.",
       url: "#",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+      image: "/project-fitness-app.jpg",
     },
     {
       id: "item-4",
-      title: "Predictive Analytics",
+      title: "Custom CRM for Small Business Workflow Automation",
       summary:
-        "Advanced forecasting capabilities that analyze historical data to predict future trends and outcomes, helping businesses make data-driven decisions.",
+        "Developed a tailored Customer Relationship Management system to streamline sales pipelines, manage client interactions, and automate follow-up processes for small and medium enterprises. Technologies: Laravel, Vue.js, MySQL.",
       url: "#",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+      image: "/project-crm.jpg",
     },
     {
       id: "item-5",
-      title: "Neural Network Architecture",
+      title: "AI-Powered Resume Parser and Job Matching System",
       summary:
-        "Sophisticated AI models inspired by human brain structure, capable of solving complex problems through deep learning and pattern recognition.",
+        "Created an intelligent web service that parses resumes using AI, extracts key skills, and matches candidates with relevant job openings, significantly reducing recruitment time. Technologies: Python (Flask, spaCy), React, PostgreSQL.",
       url: "#",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+      image: "/project-ai-resume.jpg",
+    },
+    {
+      id: "item-6",
+      title: "Interactive Data Visualization Tool for Financial Analysis",
+      summary:
+        "Developed a powerful web-based tool for financial analysts to visualize complex market data, identify trends, and generate custom reports, enhancing decision-making capabilities. Technologies: D3.js, Next.js, REST APIs.",
+      url: "#",
+      image: "/project-data-viz.jpg",
+    },
+    {
+      id: "item-7",
+      title: "Blockchain-based Supply Chain Traceability Solution",
+      summary:
+        "Implemented a decentralized application (DApp) on a blockchain platform to provide transparent and immutable tracking of products in a supply chain.",
+      url: "#",
+      image: "/project-blockchain.jpg",
+    },
+    {
+      id: "item-8",
+      title: "Personal Portfolio Site with Next.js and Shadcn UI",
+      summary:
+        "Designed and developed a modern, static personal portfolio website to showcase skills and projects, built with Next.js, TypeScript, and Shadcn UI.",
+      url: "#",
+      image: "/project-portfolio.jpg",
     },
   ],
 }: Gallery6Props) => {
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
-  useEffect(() => {
-    if (!carouselApi) {
-      return;
-    }
-    const updateSelection = () => {
-      setCanScrollPrev(carouselApi.canScrollPrev());
-      setCanScrollNext(carouselApi.canScrollNext());
-    };
-    updateSelection();
-    carouselApi.on("select", updateSelection);
-    return () => {
-      carouselApi.off("select", updateSelection);
-    };
-  }, [carouselApi]);
   return (
-    <section className="py-32">
-      <div className="container">
-        <div className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16">
-          <div>
-            <h2 className="mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
-              {heading}
-            </h2>
-            <a
-              href={demoUrl}
-              className="group flex items-center gap-1 text-sm font-medium md:text-base lg:text-lg"
-            >
-              Book a demo
-              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-1" />
-            </a>
-          </div>
-          <div className="mt-8 flex shrink-0 items-center justify-start gap-2">
-            <Button
-              size="icon"
-              variant="outline"
-              onClick={() => {
-                carouselApi?.scrollPrev();
-              }}
-              disabled={!canScrollPrev}
-              className="disabled:pointer-events-auto"
-            >
-              <ArrowLeft className="size-5" />
-            </Button>
-            <Button
-              size="icon"
-              variant="outline"
-              onClick={() => {
-                carouselApi?.scrollNext();
-              }}
-              disabled={!canScrollNext}
-              className="disabled:pointer-events-auto"
-            >
-              <ArrowRight className="size-5" />
-            </Button>
-          </div>
-        </div>
+    <section className="py-24 md:py-32 container"> {/* Container for padding, but grid will handle max-width */}
+      <div className="text-center mb-16">
+        <h1 className="text-4xl font-bold tracking-tight text-pretty md:text-5xl lg:text-6xl mb-4">
+          {heading}
+        </h1>
+        <p className="text-lg text-muted-foreground md:text-xl">
+          Here are some of the projects I've worked on, showcasing my diverse skills.
+        </p>
+        {/* Optional: A "View All Projects" link if you have a dedicated full projects page */}
+        {/* {viewAllUrl && (
+          <a
+            href={viewAllUrl}
+            className="group flex items-center justify-center gap-1 text-sm font-medium text-primary md:text-base lg:text-lg mt-4"
+          >
+            View All Projects
+            <ExternalLink className="ml-2 size-4 transition-transform group-hover:translate-x-0.5" />
+          </a>
+        )} */}
       </div>
-      <div className="w-full max-w-full">
-        <Carousel
-          setApi={setCarouselApi}
-          opts={{
-            breakpoints: {
-              "(max-width: 768px)": {
-                dragFree: true,
-              },
-            },
-          }}
-          className="relative w-full max-w-full md:left-[-1rem]"
-        >
-          <CarouselContent className="hide-scrollbar w-full max-w-full md:-mr-4 md:ml-8 2xl:ml-[max(8rem,calc(50vw-700px+1rem))] 2xl:mr-[max(0rem,calc(50vw-700px-1rem))]">
-            {items.map((item) => (
-              <CarouselItem key={item.id} className="ml-8 md:max-w-[452px]">
-                <a
-                  href={item.url}
-                  className="group flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="aspect-3/2 flex overflow-clip rounded-xl">
-                      <div className="flex-1">
-                        <div className="relative h-full w-full origin-bottom transition duration-300 group-hover:scale-105">
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="h-full w-full object-cover object-center"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mb-2 line-clamp-3 break-words pt-4 text-lg font-medium md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl">
-                    {item.title}
-                  </div>
-                  <div className="text-muted-foreground mb-8 line-clamp-2 text-sm md:mb-12 md:text-base lg:mb-9">
-                    {item.summary}
-                  </div>
-                  <div className="flex items-center text-sm">
-                    Read more{" "}
-                    <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
-                  </div>
-                </a>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+
+      {/* --- Portfolio Grid --- */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"> {/* The responsive grid */}
+        {items.map((item) => (
+          <Button
+            key={item.id}
+            asChild
+            variant="outline"
+            className={cn(
+              "group flex h-full flex-col p-4 text-left shadow-sm transition-shadow hover:shadow-md", // Card styling
+              "rounded-xl bg-background/30 backdrop-blur-sm" // Background/blur from homepage image
+            )}
+          >
+            {/* Added a min-h for the anchor tag to ensure consistent height baseline */}
+            <a href={item.url} className="flex flex-col h-full min-h-[350px]"> {/* Adjusted min-h for better visual */}
+              {/* Image Section - ensure it doesn't grow/shrink */}
+              <div className="aspect-video relative overflow-hidden rounded-lg border mb-4 flex-grow-0 flex-shrink-0">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="saturate-0 transition-all group-hover:saturate-100"
+                />
+              </div>
+
+              {/* Text Content Area - allow it to grow if needed, but with clamping */}
+              <div className="flex flex-col flex-grow">
+                  <h3 className="mb-2 line-clamp-2 break-words text-lg font-semibold md:text-xl">
+                      {item.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4 line-clamp-3 text-sm md:text-base">
+                      {item.summary}
+                  </p>
+              </div>
+
+              {/* "View Project" Link - push to bottom */}
+              <div className="flex items-center text-sm text-primary mt-auto">
+                View Project{" "}
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </div>
+            </a>
+          </Button>
+        ))}
       </div>
     </section>
   );

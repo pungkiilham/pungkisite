@@ -1,89 +1,84 @@
-import React from "react";
+import { Mail, Github, Linkedin } from "lucide-react"; // Icons for contact methods
+import { ExternalLink } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
 
-interface Contact2Props {
-  title?: string;
-  description?: string;
-  phone?: string;
-  email?: string;
-  web?: { label: string; url: string };
-}
-
-const Contact2 = ({
-  title = "Contact Me",
-  description = "I'm available for questions, collaboration / job / project opportunities. Let me know how I can help!",
-  phone = "+62-81999535316",
-  email = "pungkiilham92@gmail.com",
-  web = { label: "My LinkedIn", url: "https://www.linkedin.com/in/pungki-ilham-rizky-soni/" },
-}: Contact2Props) => {
+const ContactPage = () => {
   return (
-    <section className="py-32">
-      <div className="container">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-10 lg:flex-row lg:gap-20">
-          <div className="mx-auto flex max-w-sm flex-col justify-between gap-10">
-            <div className="text-center lg:text-left">
-              <h1 className="mb-2 text-5xl font-semibold lg:mb-1 lg:text-6xl">
-                {title}
-              </h1>
-              <p className="text-muted-foreground">{description}</p>
-            </div>
-            <div className="mx-auto w-fit lg:mx-0">
-              <h3 className="mb-6 text-center text-2xl font-semibold lg:text-left">
-                Contact Details
-              </h3>
-              <ul className="ml-4 list-disc">
-                <li>
-                  <span className="font-bold">Phone: </span>
-                  {phone}
-                </li>
-                <li>
-                  <span className="font-bold">Email: </span>
-                  <a href={`mailto:${email}`} className="underline">
-                    {email}
-                  </a>
-                </li>
-                <li>
-                  <span className="font-bold">Web: </span>
-                  <a href={web.url} target="_blank" className="underline">
-                    {web.label}
-                  </a>
-                </li>
-              </ul>
-            </div>
+    <section className="py-12 md:py-16 container max-w-full mx-auto text-center">
+      <div className="mb-16">
+        <h1 className="text-4xl font-bold tracking-tight text-pretty md:text-5xl lg:text-6xl mb-4">
+          Get in <span className="text-primary">Touch</span>
+        </h1>
+        <p className="text-lg text-muted-foreground md:text-xl">
+          I'm always open to new opportunities, collaborations, or just a friendly chat!
+        </p>
+      </div>
+
+      <div className="space-y-8 md:space-y-10">
+        {/* Email */}
+        <div className="flex flex-col items-center">
+          <Mail className="h-10 w-10 text-primary mb-4" />
+          <h2 className="text-2xl font-semibold mb-2">Email Me</h2>
+          <p className="text-muted-foreground mb-4">
+            The best way to reach me for professional inquiries.
+          </p>
+          <a
+            href="mailto:pungkiilham92@example.com" // IMPORTANT: Replace with your actual email address
+            className="px-6 py-3 text-lg group flex justify-center items-center gap-2 border-2 border-slate-300 rounded-lg"
+          >
+            Send an Email{" "}
+            <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </a>
+        </div>
+
+        {/* Social Links */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-12">
+          {/* LinkedIn */}
+          <div className="flex flex-col items-center">
+            <Linkedin className="h-10 w-10 text-primary mb-4" />
+            <h2 className="text-2xl font-semibold mb-2">Connect on LinkedIn</h2>
+            <p className="text-muted-foreground mb-4">
+              Let's connect professionally and expand our networks.
+            </p>
+            <a
+              href="https://www.linkedin.com/in/pungki-ilham-rizky-soni/" // IMPORTANT: Replace with your actual LinkedIn URL
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 text-lg group flex justify-center items-center gap-2 border-2 border-slate-300 rounded-lg"
+            >
+              My LinkedIn{" "}
+              <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
-          <div className="mx-auto flex max-w-3xl flex-col gap-6 rounded-lg border p-10">
-            <div className="flex gap-4">
-              <div className="grid w-full items-center gap-1.5">
-                <Label htmlFor="firstname">First Name</Label>
-                <Input type="text" id="firstname" placeholder="First Name" />
-              </div>
-              <div className="grid w-full items-center gap-1.5">
-                <Label htmlFor="lastname">Last Name</Label>
-                <Input type="text" id="lastname" placeholder="Last Name" />
-              </div>
-            </div>
-            <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="email">Email</Label>
-              <Input type="email" id="email" placeholder="Email" />
-            </div>
-            <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="subject">Subject</Label>
-              <Input type="text" id="subject" placeholder="Subject" />
-            </div>
-            <div className="grid w-full gap-1.5">
-              <Label htmlFor="message">Message</Label>
-              <Textarea placeholder="Type your message here." id="message" />
-            </div>
-            <Button className="w-full">Send Message</Button>
+
+          {/* GitHub */}
+          <div className="flex flex-col items-center">
+            <Github className="h-10 w-10 text-primary mb-4" />
+            <h2 className="text-2xl font-semibold mb-2">Explore My Code</h2>
+            <p className="text-muted-foreground mb-4">
+              Check out my repositories and open-source contributions.
+            </p>
+            <a
+              href="https://github.com/pungkiilham" // IMPORTANT: Replace with your actual GitHub URL
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 text-lg group flex justify-center items-center gap-2 border-2 border-slate-300 rounded-lg"
+            >
+              My GitHub{" "}
+              <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
+        </div>
+
+        {/* Optional: Location */}
+        <div className="mt-12 text-muted-foreground text-center">
+          <p className="text-lg">Based in Surabaya, East Java, Indonesia</p>
         </div>
       </div>
     </section>
   );
 };
 
-export { Contact2 };
+export default ContactPage;

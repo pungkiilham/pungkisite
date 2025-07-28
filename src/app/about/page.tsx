@@ -1,4 +1,5 @@
-import { About3 } from "@/components/about3";
+import AboutPage from "@/components/about3";
+
 import { Gallery6 } from "@/components/gallery6";
 import { Hero12 } from "@/components/hero12";
 import { Navbar5 } from "@/components/navbar5";
@@ -8,7 +9,8 @@ export default function About() {
   return (
     <div>
       <Navbar5 />
-      <About3 />
+      {/* <About3 /> */}
+      <AboutPage />
     </div>
   );
 }
