@@ -8,7 +8,7 @@ export function PortfolioProvider({ children }) {
   const [profile, setProfile] = useState({
     name: 'Pungki Ilham Rizky Soni',
     title: 'Technical IT Project Manager | Business Analyst | Fullstack Developer',
-    location: 'Surabaya, Indonesia',
+    location: 'Surabaya, Indonesia (Willing to Relocate)',
     email: 'pungkiilham92@gmail.com',
     phone: '+62 819 9953 5316',
     linkedin: 'https://www.linkedin.com/in/pungki-ilham-rizky-soni/',
