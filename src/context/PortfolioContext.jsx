@@ -13,12 +13,8 @@ export function PortfolioProvider({ children }) {
     phone: '+62 819 9953 5316',
     linkedin: 'https://www.linkedin.com/in/pungki-ilham-rizky-soni/',
     availability: 'Open to opportunities',
-    summary: `Results-oriented Technical IT Project Manager (8+ years) and Business Analyst (4+ years) 
-with cross-functional experience bridging Industrial Mechatronics and Modern IT Systems.
-
-Expert at translating high-level business requirements into technical execution across SaaS, ERP 
-(Odoo & Custom Stacks), and IoT/Electrical systems. Proven track record of reducing project 
-lifecycles by 20% and delivering end-to-end SaaS solutions in ultra-fast 4-week cycles.`,
+    summary: `Results-oriented Technical IT Project Manager (8+ years) and Business Analyst (4+ years) with cross-functional experience bridging Industrial Mechatronics and Modern IT Systems.
+    Expert at translating high-level business requirements into technical execution across SaaS, ERP (Odoo & Custom Stacks), and IoT/Electrical systems. Proven track record of reducing project lifecycles by 20% and delivering end-to-end SaaS solutions in ultra-fast 4-week cycles.`,
     education: {
       institution: 'Politeknik Elektronika Negeri Surabaya (PENS)',
       degree: 'Bachelor of Mechatronic Engineering',
